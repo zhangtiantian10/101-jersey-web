@@ -10,7 +10,7 @@ services:
       - TERM=dumb
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=supermarket
-      - MYSQL_PASSWORD=supermarket
+      - MYSQL_PASSWORD=111111
       - MYSQL_USER=supermarket
     networks:
       main:
