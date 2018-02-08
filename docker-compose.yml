@@ -1,0 +1,20 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: supermarket
+    ports:
+      - 3330:3306
+    environment:
+      - LANG=C.UTF-8
+      - TERM=dumb
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=supermarket
+      - MYSQL_PASSWORD=supermarket
+      - MYSQL_USER=supermarket
+    networks:
+      main:
+        aliases:
+          - supermarket
+networks:
+  main:
