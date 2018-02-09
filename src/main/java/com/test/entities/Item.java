@@ -1,6 +1,9 @@
 package com.test.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "item")
@@ -10,6 +13,18 @@ public class Item {
     private long id;
     private double price;
     private String name;
+
+    @JsonBackReference
+    @ManyToMany(mappedBy = "items")
+    private Set<Cart> carts;
+
+    public Set<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
+    }
 
     public long getId() {
         return id;

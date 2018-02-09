@@ -18,28 +18,28 @@ public class CategoryController {
     private CategoryRepository categoryRepository;
 
     @RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
-    public ResponseEntity category(@PathVariable long id) throws Exception{
+    public ResponseEntity getCategory(@PathVariable long id) throws Exception{
         Category category = categoryRepository.findOne(id);
 
         return new ResponseEntity<>(category, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.POST)
-    public ResponseEntity saveItem(@RequestBody Category category) throws Exception {
+    public ResponseEntity saveCategory(@RequestBody Category category) throws Exception {
         categoryRepository.save(category);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/category/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity deleteItem(@PathVariable long id) throws Exception {
+    public ResponseEntity deleteCategory(@PathVariable long id) throws Exception {
 
         categoryRepository.delete(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/category/{id}", method = RequestMethod.PUT)
-    public ResponseEntity updateItem(@PathVariable long id, @RequestBody Category category) throws Exception {
+    public ResponseEntity updateCategory(@PathVariable long id, @RequestBody Category category) throws Exception {
 
         Category getCategory = categoryRepository.findOne(id);
 
